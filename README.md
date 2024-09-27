@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Proper instructions to run both the frontend and backend locally.
+## 1 frontend, Next.js Project Setup
+## Requirements
+**Node.js** and **npm** (Check versions)
 
-## Getting Started
+  node -v 
+  npm -v
 
-First, run the development server:
+version should display
 
-```bash
+## Installation
+Clone the project
+
+git clone https://github.com/<your-repository>/<project-name.git>
+cd project-name
+
+## Install dependencies
+npm install
+
+## Environment variables
+Create .env.local and add required variables:
+NEXT_PUBLIC_API_URL=https://api.example.com
+
+## Running the Project
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+_______________________________________________________________
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 2 Run JSON server
+Clone the project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+git clone https://github.com/<your-repository>/<project-name.git>
+cd project-name
 
-## Learn More
+## Installation
+Install JSON Server globally
+npm install -g json-server
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run JSON Server
+json-server --watch db.json --port 8080
