@@ -6,12 +6,12 @@ import { fetchUsaer } from "../store/slices/userSlice";
 export const asyncThunkUsers = createAsyncThunk("post/asyncThunkUsers", async (payload, { dispatch }) => {
     await axios.get(`http://localhost:8080/users`)
         .then(res => {
-            console.log('res###',res)
+            console.log('res###', res)
             if (res?.status !== 200) return
             dispatch(fetchUsaer(res?.data))
         }).catch(err => {
             console.error(err)
-            dispatch(fetchUsaer([]))
+            // dispatch(fetchUsaer([]))
             console.error(err);
         })
 })
@@ -21,7 +21,20 @@ export const asyncThunkAddUsers = createAsyncThunk("post/asyncThunkAddUsers", as
         .then(() => {
         }).catch(err => {
             console.error(err)
-            dispatch(fetchUsaer([]))
+            // dispatch(fetchUsaer([]))
+            console.error(err);
+        })
+})
+
+export const asyncThunkDeleteUsers = createAsyncThunk("delete/asyncThunkDeleteUsers", async (payload, { dispatch }) => {
+    await axios.delete(`http://localhost:8080/users/${payload}`)
+        .then(res => {
+            console.log('res###', res)
+            // if (res?.status !== 200) return
+            dispatch(asyncThunkUsers())
+        }).catch(err => {
+            console.error(err)
+            // dispatch(fetchUsaer([]))
             console.error(err);
         })
 })

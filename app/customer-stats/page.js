@@ -22,7 +22,7 @@ export default function Page() {
 
   return <ResponsiveDrawer >
     <div className="flex flex-wrap justify-center  " >
-      <BasicCard data={{ name: 'Rotal Customers', delete: true, totalUser: data?.length }} />
+      <BasicCard data={{ name: 'Total Customers', delete: true, totalUser: data?.length }} />
       <BasicCard recent={ data}  data={{ sirName: 'Recently Added', delete: true}} />
     </div>
   </ResponsiveDrawer>

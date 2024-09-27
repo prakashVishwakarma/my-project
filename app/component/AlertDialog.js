@@ -6,10 +6,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { asyncThunkDeleteUsers } from '@/store/createAsyncThunk';
 
 export default function AlertDialog({ id }) {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = React.useState(false);
+  const dispatch = useDispatch()
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -17,6 +20,7 @@ export default function AlertDialog({ id }) {
 
   const handleClose = (id) => {
     if (id !== null) {
+      dispatch(asyncThunkDeleteUsers(id))
       // const getUsers = async () => {
       //   try {
       //     const response = await axios.delete(`http://localhost:8080/users/${id}`)
