@@ -11,15 +11,11 @@ version should display
 ## Installation
 Clone the project
 
-git clone https://github.com/<your-repository>/<project-name.git>
+git clone https://github.com/prakashVishwakarma/my-project.git
 cd project-name
 
 ## Install dependencies
 npm install
-
-## Environment variables
-Create .env.local and add required variables:
-NEXT_PUBLIC_API_URL=https://api.example.com
 
 ## Running the Project
 npm run dev

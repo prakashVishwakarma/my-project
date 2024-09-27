@@ -19,7 +19,7 @@ const bull = (
 export default function BasicCard({ data, recent }) {
     console.log(recent)
     return (
-        <Card sx={{ width: "25%" }} className=' m-8 bg-blue-100'>
+        <Card sx={{ width: "25%" }} className=' m-8 bg-blue-100 w-10/12 md:w-1/3'>
             {
                 data && <>
 

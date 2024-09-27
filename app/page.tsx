@@ -3,9 +3,10 @@ import ResponsiveDrawer from "@/app/component/Sidebar";
 import BasicCard from "@/app/component/card";
 import { Button } from "@mui/material";
 import Link from "next/link";
-import { Fragment, Key, useEffect, useState } from "react";
+import { Fragment, Key, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncThunkUsers } from "@/store/createAsyncThunk";
+import SharedButton from "./component/SharedComponent/Button";
 
 export default function Home() {
 
@@ -19,8 +20,8 @@ export default function Home() {
 
   return (
     <ResponsiveDrawer >
-      <Link href={"add-customer"}><Button variant="outlined">Add</Button></Link>
-      <div className="flex flex-wrap justify-center  " >
+      <Link href={"add-customer"}> <SharedButton text={undefined} onClick={undefined} /></Link>
+      <div className="md:flex md:flex-wrap md:justify-evenly  " >
         {
           userData?.length !== 0 ?
             userData?.map((value: any, i: Key | null | undefined) => {

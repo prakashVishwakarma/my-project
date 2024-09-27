@@ -22,7 +22,7 @@ import Link from 'next/link';
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
-  const { window ,children } = props;
+  const { window, children } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
 
@@ -50,11 +50,11 @@ function ResponsiveDrawer(props) {
           <ListItem key={value?.Inbox} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <MailIcon /> : <InboxIcon />}
               </ListItemIcon>
               <Link href={value?.Link}>
-                
-              <ListItemText primary={value.Inbox} />
+
+                <ListItemText primary={value.Inbox} />
               </Link>
             </ListItemButton>
           </ListItem>

@@ -1,23 +1,21 @@
 'use client'
-import { Typography } from "@mui/material";
 import ResponsiveDrawer from "../component/Sidebar";
 import BasicCard from "../component/card";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { asyncThunkUsers } from "@/store/createAsyncThunk";
 
 export default function Page() {
 
   const [data, setData] = useState([])
+  const dispatch = useDispatch();
+
+  const userData = useSelector((state) => state.users?.data);
 
   useEffect(() => {
-    const getUsers = async () => {
-      const response = await axios.get(`http://localhost:8080/users`)
-      if (response?.status === 200) {
-        setData(response?.data)
-      }
-      console.log(response)
-    }
-    getUsers()
+    dispatch(asyncThunkUsers())
+    setData(userData)
   }, [])
 
   return <ResponsiveDrawer >
